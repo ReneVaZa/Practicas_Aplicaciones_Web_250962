@@ -90,19 +90,19 @@ nav a:hover{
 }
 
 .parallax-1{
-    background-image: url("/Practica03/assie/images/fondo1.jpg");
+    background-image: url("/Practica03/imagenes/image1.jpg");
 }
 
 .parallax-2{
-    background-image: url("/Practica03/assie/images/fondo2.jpg");
+    background-image: url("/Practica03/imagenes/image2.jpg");
 }
 
 .parallax-3{
-    background-image: url("/Practica03/assie/images/fondo3.jpg");
+    background-image: url("/Practica03/imagenes/image3.jpg");
 }
 
 .parallax-4{
-    background-image: url("/Practica03/assie/images/fondo4.jpg");
+    background-image: url("/Practica03/imagenes/image4.jpg");
 }
 
 .Perfil-img{
@@ -263,4 +263,42 @@ blockquote{
     background: white;
     border-radius: 18px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.8);
+}
+/* ===================== */ 
+/* Redes Sociales*/
+/* ===================== */ 
+
+.redes{
+    text-align: center;
+}
+.redes-sociales{
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.redes-sociales a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    min-width: 120px;
+    padding: 18px;
+    color: white;
+    background: linear-gradient(
+        145deg,
+        #1e293b
+        #334155
+    );
+    border-radius: 18px;
+    text-decoration: 18px;
+    text-decoration: none;
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+
+
+
+}
+.redes-sociales a:hover{
+    transform: translateY(-8px);
 }
