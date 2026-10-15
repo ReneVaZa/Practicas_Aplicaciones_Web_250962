@@ -128,22 +128,22 @@ nav a:hover {
 
 .parallax-1 {
     background-image:
-        url("/Practica03/imagenes/image1.jpg");
+        url("../imagenes/image1.jpg");
 }
 
 .parallax-2 {
     background-image:
-        url("/Practica03/imagenes/image2.jpg");
+        url("../imagenes/image2.jpg");
 }
 
 .parallax-3 {
     background-image:
-        url("/Practica03/imagenes/image3.jpg");
+        url("../imagenes/image3.jpg");
 }
 
 .parallax-4 {
     background-image:
-        url("/Practica03/imagenes/image4.jpg");
+        url("../imagenes/image4.jpg");
 }
 
 
