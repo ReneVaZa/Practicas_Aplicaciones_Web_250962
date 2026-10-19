@@ -169,6 +169,34 @@
             <input type="color" id="colorFondo" name="colorFondo" value="#0000">
         </fieldset>
 
+        <fieldset>
+                <legend>Configuracion de mi Cuenta/Perfil</legend>
+                <label for="userPhoto">Foto de Perfil:</label>
+                <input type="image" id="userPhoto" accept="image/">
+                <input type="image" id="buttonNext" src="Practica04/assets/imagenes/next.gif">
+                <br>
+                <input type="hidden" id="userId" value="25XXXX">
+            </fieldset>
+
+            <fieldset>
+                <legend>Datos Fiscales: </legend>
+                <label for="rfc">Registro Federal de Causantes(RFC):</label>
+                <input type="text" id="rfc" maxlength="13" placeholder="RHAXXXXXXXXXXX">
+                <br>
+                <label for="fiscalSituation">Constancia de Situaciòn fiscal: </label>
+                <input type="file" id="fiscalSituation" accept=".pdf">
+                <input type="hidden" id="userId" value="25XXXX">
+            </fieldset>
+
+            <fieldset>
+                <legend>Solicitud de Cita:</legend>
+                <label for="dateAppoiment">Fecha de la Cita: </label>
+                <input type="datetime-local" id="dateAppoiment">
+                <br>
+                <label for="descriptionText">Descripcion de la Cita</label>
+                <textarea id="descriptionText"></textarea>
+                <br>
+
     </main>
 </body>
 
