@@ -1,79 +1,175 @@
-<html lang="en">
-    <body>
+<!DOCTYPE HTML>
+<html lang="es">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MecaGest: Formulario de Registro de Nuevos Usuarios - 250780</title>
+</head>
 
+<body>
+    <header>
+    <h2>Registro de Nuevos Usuarios</h2>
+    <p>Complete los campos para solicitar una cuenta en el sistema</p>
+</header>
+    <main>
+        <form action="" method="post">
+            <fieldset>
+                <legend>Datos Personales</legend>
 
+                <label for="Nombre">Nombre:</label> <br>
+                <input type="text" name="Nombre" id="Nombre" placeholder="ej: Rene" required><br>
 
+                <label for="apPaterno">Apellido Paterno:</label><br>
+                <input type="text" name="apPaterno" id="apPaterno" placeholder="ej: Vargas" required><br>
 
-<main>
-<form action="" method="POST">
-    <form action="" method="">
+                <label for="apMaterno">Apellido Materno:</label><br>
+                <input type="text" name="apMaterno" id="apMaterno" placeholder="Opcional"><br>
+
+                <label for="fechaNac">Fecha de Nacimiento:</label><br>
+                <input type="date" name="fechaNac" id="fechaNac" required><br>
+
+                <label for="genero">Género: </label><br>
+                <select name="genero" id="genero" required>
+                    <option value="M">Masculino</option>
+                    <option value="F">Femenino</option>
+                    <option value="X">Prefiero no decirlo</option>
+                </select><br>
+            </fieldset>
+
+            <fieldset>
+                <legend>Datos de Contacto</legend>
+
+                <label for="correo">Correo electrónico:</label><br>
+                <input type="email" name="correo" id="correo" placeholder="ej: 250962@utxicotepec.edu.mx" required><br>
+
+                <label for="telefonoMovil">Telefono móvil</label><br>
+                <input type="text" name="telefonoMovil" id="telefonoMovil" placeholder="ej: (55) 123-567-1234" required><br>
+
+                <label for="telefonoFijo">Telefono fijo</label><br>
+                <input type="text" name="telefonoFijo" id="telefonoFijo" placeholder="Opcional"><br>
+
+                <label for="horarioContactoInicio">Favor de contactar en el horario: </label>
+                <input type="time" name="horarioContactoInicio" id="horarioContactoInicio" required> a 
+                <input type="time" name="horarioContactoFin" id="horarioContactoFin"><br>
+            </fieldset>
+
+            <fieldset>
+                <legend>Datos de Ubicación</legend>
+
+                <label for="direccion">Dirección:</label>
+                <input type="text" name="direccion" id="direccion" placeholder="Calle, Número, Colonia" required><br>
+
+                <label for="pais">País:</label>
+                <input type="text" name="pais" id="pais" placeholder="México" required><br>
+                
+                <label for="estado">Estado:</label>
+                <input type="text" name="estado" id="estado" placeholder="Ciudad de México" required><br>
+
+                <label for="ciudad">Ciudad:</label>
+                <input type="text" name="ciudad" id="ciudad" placeholder="Ciudad de México" required><br>
+
+                <label for="codigoPostal">Código Postal:</label>
+                <input type="text" name="codigoPostal" id="codigoPostal" placeholder="01234" required><br>
+            </fieldset>
+
+            <fieldset>
+                <legend>Datos de Acceso</legend>
+                <label for="usuario">Usuario:</label>
+                <input type="text" name="usuario" id="usuario" placeholder="usuario" required><br>
+
+                <label for="password">Contraseña:</label>
+                <input type="password" name="password" id="password" placeholder="********" required><br>
+
+                <label for="confirmarPassword">Confirmar Contraseña:</label>
+                <input type="password" name="confirmarPassword" id="confirmarPassword" placeholder="********" required><br>
+            </fieldset>
+
+            <br>
+            <input type="checkbox" value="validado"> Acepto los términos y condiciones del uso de la plataforma MecaGest.
+            <br><br>
+            <input type="submit" value="Enviar Solicitud" disabled>
+            <input type="reset" value="Limpiar Formulario">
+        </form>
+
+        <br><br>
+
+        <!-- Elementos input que usaremos más adelante -->
+        <form>
+            <fieldset>
+                <legend>Visualización de Citas por Mes:</legend>
+                <label for="mesCitas">Por favor elige el mes:</label>
+                <input type="month" id="mesCitas">
+                <button id="verCitas" type="button">Ver Citas</button>
+
+                <br><br>
+                <h4>Las citas programadas para el mes elegido son:</h4>
+                <br>
+
+                <table style="border: 1px solid black; border-collapse: collapse; width: 100%;">
+                    <thead>
+                        <tr>
+                            <th style="border: 1px solid black;">No.</th>
+                            <th style="border: 1px solid black;">Nombre</th>
+                            <th style="border: 1px solid black;">Descripción</th>
+                            <th style="border: 1px solid black;">Fecha Programada</th>
+                            <th style="border: 1px solid black;">Estatus Actual</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="border: 1px solid black;">1.</td>
+                            <td style="border: 1px solid black;">Cita de entrega de unidad reparada con el cliente: Mauricio Mejia, Unidad: Volkswagen, Jetta 2020</td>
+                            <td style="border: 1px solid black;">Se realizo un cambio de bujias, la unidad esta lista para entrega</td>
+                            <td style="border: 1px solid black;">10 de Octubre de 2026</td>
+                            <td style="border: 1px solid black;">Atendida</td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black;">2.</td>
+                            <td style="border: 1px solid black;">Cita de valoración con el cliente: Marco A. Ramírez, Unidad: Renault, Duster 2014</td>
+                            <td style="border: 1px solid black;">El cliente solicita una revisión del cuerpo de aceleración de la unidad para posible mantenimiento correctivo.</td>
+                            <td style="border: 1px solid black;">16 de Octubre de 2026</td>
+                            <td style="border: 1px solid black;">Programada</td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black;">3.</td>
+                            <td style="border: 1px solid black;">Cita de revisión con el cliente: Mauricio Mejía, Unidad: Volkswagen, Jetta 2020</td>
+                            <td style="border: 1px solid black;">A la unidad se le hicieron cambio de bujías, pero el cliente reporta un sonido extraño.</td>
+                            <td style="border: 1px solid black;">17 de Octubre de 2026</td>
+                            <td style="border: 1px solid black;">Programada</td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black;">4.</td>
+                            <td style="border: 1px solid black;">Cita de valoración con la cliente: Alejandra Romero, Unidad: Toyota, Hilux 2012</td>
+                            <td style="border: 1px solid black;">El cliente solicita una revisión del cuerpo de aceleración de la unidad para posible mantenimiento correctivo.</td>
+                            <td style="border: 1px solid black;">16 de Octubre de 2026</td>
+                            <td style="border: 1px solid black;">Cancelada</td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black;">5.</td>
+                            <td style="border: 1px solid black;">Cita de valoración con la cliente: Alejandra Romero, Unidad: Toyota, Hilux 2012</td>
+                            <td style="border: 1px solid black;">El cliente solicita una revisión del cuerpo de aceleración de la unidad para posible mantenimiento correctivo.</td>
+                            <td style="border: 1px solid black;">20 de Octubre de 2026</td>
+                            <td style="border: 1px solid black;">Reprogramada</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </fieldset>
+        </form>
+
+        <br>
+
+        <!-- Configuraciones de la Interfaz -->
         <fieldset>
-            <legend>Datos Personales</legend>
-            <label for="nombre">Nombre</label>
-        <input type="text" id="nombre" placeholder="Rene" required>
-        <br>
-        <label for="apPaterno">Apellido Paterno</label>
-        <input type="text" id="apPaterno" placeholder="Vargas" required>
-        <br>
-        <label for="apMaterno">Apellido Materno</label>
-        <input type="text" id="apMaterno" placeholder="Zarate" required>
-        <br>
-        <label for="genero">Genero</label>
-        <select id="genero">
-            <option value="M">Masculino</option>
-            <option value="F">Femenino</option>
-            <option value="X">Otro</option>
-        </select>
-        <br>
-        <label for="fechaNacimiento">Fecha de nacimiento</label>
-        <input type="dato" id="fechaNacimiento">
+            <legend>Configuraciones de la Interfaz:</legend>
+            <label for="colorFuente">Color de la Fuente</label>
+            <input type="color" id="colorFuente" name="colorFuente" value="#ffff"><br><br>
+
+            <label for="colorFondo">Color de Fondo</label>
+            <input type="color" id="colorFondo" name="colorFondo" value="#0000">
         </fieldset>
 
-        
-        <fieldset>
-            <legend>Datos de Contacto</legend>
+    </main>
+</body>
 
-            <label for="email">Correo electronico</label>
-            <input type="email" id="email" placeholder="250962@utxicotepec.edu.mx">
-            <br>
-            <label for="numTelefonico">Numero Telefonico</label>
-            <input type="tel" id="numTelefonico" placeholder="(55) 1234-5678">
-            <br>
-            <label for="horarioContacto">Horario de contacto</label>
-            <input type="time" id="horarioContacto" placeholder="18.00">
-        </fieldset>
-
-        <fieldset>
-            <legend>Datos de ubicacion</legend>
-            <label for="direccion">Direccion</label>
-            <input type="text" id="direccion" required placeholder="direccion">
-            <br>
-            <label for="pais">Pais</label>
-            <input type="text" id="pais" placeholder="ej. Mexico" required>
-            <br>
-            <label for="estados">Estados</label>
-            <input type="text" id="estados" placeholder="ej. Puebla" required>
-            <br>
-            <label for="ciudad">Ciudad</label>
-            <input type="text" id="ciudad " placeholder="ej. Huauchinango" required>
-        </fieldset>
-
-        <fieldset>
-            <legend>Datos de acceso</legend>
-            <label for="usuario">Usuario</label>
-            <input type="text" id="usuario" placeholder="User-1" required>
-            <br>
-            <label for="contraseña">Contraseña</label>
-            <input type="password" id="contraseña" placeholder="password" required>
-            <br>
-            <label for="confirmarContraseña">ConfirmarContraseña</label>
-            <input type="password" id="confirmarContraseña" placeholder="confirmar contraseña" required>       
-        </fieldset>
-        
-        
-        
-    </form>
-</main>   
-    </body> 
 </html>
