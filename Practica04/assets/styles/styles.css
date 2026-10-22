@@ -1,0 +1,307 @@
+/* ==========================================================================
+   1. VARIABLES GLOBALES Y RESET
+   ========================================================================== */
+:root {
+  --primary: #1e3a8a;          /* Azul marino industrial/automotriz */
+  --primary-hover: #1e40af;
+  --secondary: #0284c7;        /* Azul claro para detalles */
+  --bg-page: #f8fafc;
+  --bg-card: #ffffff;
+  --text-dark: #0f172a;
+  --text-muted: #475569;
+  --border-color: #cbd5e1;
+  --focus-ring: rgba(30, 58, 138, 0.2);
+  --success: #16a34a;
+  --danger: #dc2626;
+  --radius: 8px;
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--bg-page);
+  color: var(--text-dark);
+  line-height: 1.5;
+  padding: 2rem 1rem;
+}
+
+/* ==========================================================================
+   2. ENCABEZADO Y CONTENEDORES PRINCIPALES
+   ========================================================================== */
+header {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 2rem auto;
+  background: var(--bg-card);
+  padding: 1.5rem 2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border-top: 5px solid var(--primary);
+}
+
+header h1 {
+  font-size: 2.2rem;
+  color: var(--primary);
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+header h2 {
+  font-size: 1.25rem;
+  color: var(--text-dark);
+  margin: 0.25rem 0 0.5rem 0;
+}
+
+header p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+main {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   3. ESTRUCTURA DE FORMULARIO Y FIELDSETS
+   ========================================================================== */
+form {
+  background: var(--bg-card);
+  padding: 2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 2rem;
+}
+
+fieldset {
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  margin-bottom: 1.75rem;
+  background-color: #fafafa;
+}
+
+legend {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--primary);
+  padding: 0 0.5rem;
+  background-color: var(--bg-card);
+  border-radius: 4px;
+}
+
+/* Subtítulos dentro de fieldsets */
+h4 {
+  color: var(--text-dark);
+  margin: 1.25rem 0 0.75rem 0;
+  font-size: 1rem;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 0.25rem;
+}
+
+/* Ajuste para eliminar los saltos de línea manuales molestos */
+br {
+  display: none; 
+}
+
+/* ==========================================================================
+   4. ETIQUETAS E INPUTS
+   ========================================================================== */
+label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-top: 1rem;
+  margin-bottom: 0.35rem;
+}
+
+label:first-of-type {
+  margin-top: 0;
+}
+
+/* Estilos unificados para todos los controles de texto/selección */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"],
+input[type="date"],
+input[type="time"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="number"],
+input[type="url"],
+select,
+textarea {
+  width: 100%;
+  padding: 0.65rem 0.85rem;
+  font-size: 0.95rem;
+  font-family: inherit;
+  color: var(--text-dark);
+  background-color: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--focus-ring);
+}
+
+textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+/* Opciones de Radio y Checkbox */
+input[type="radio"],
+input[type="checkbox"] {
+  width: auto;
+  margin-right: 0.4rem;
+  vertical-align: middle;
+  accent-color: var(--primary);
+  cursor: pointer;
+}
+
+/* Para textos flotantes junto a checkboxes/radios */
+input[type="checkbox"] + label,
+input[type="radio"] + label {
+  display: inline-block;
+  margin-top: 0;
+  font-weight: 400;
+}
+
+/* Inputs de tipo Color y Archivo */
+input[type="color"] {
+  height: 40px;
+  width: 80px;
+  padding: 2px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+input[type="file"] {
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+/* ==========================================================================
+   5. BOTONES E INTERACCIONES
+   ========================================================================== */
+input[type="submit"],
+input[type="reset"],
+button {
+  padding: 0.75rem 1.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 1rem;
+  margin-right: 0.5rem;
+}
+
+input[type="submit"],
+button {
+  background-color: var(--primary);
+  color: #ffffff;
+}
+
+input[type="submit"]:hover:not(:disabled),
+button:hover {
+  background-color: var(--primary-hover);
+}
+
+input[type="submit"]:disabled {
+  background-color: #94a3b8;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+input[type="reset"] {
+  background-color: #e2e8f0;
+  color: var(--text-dark);
+}
+
+input[type="reset"]:hover {
+  background-color: #cbd5e1;
+}
+
+input[type="image"] {
+  border-radius: 50%;
+  transition: transform 0.2s;
+  cursor: pointer;
+  margin-top: 0.75rem;
+}
+
+input[type="image"]:hover {
+  transform: scale(1.08);
+}
+
+/* ==========================================================================
+   6. TABLAS DE DATOS
+   ========================================================================== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  background-color: #ffffff;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+table, th, td {
+  border: 1px solid var(--border-color) !important; /* Invalida el inline-style */
+}
+
+th {
+  background-color: #f1f5f9;
+  color: var(--text-dark);
+  font-weight: 700;
+  text-align: left;
+  padding: 0.75rem;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+}
+
+td {
+  padding: 0.75rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+tr:nth-child(even) {
+  background-color: #f8fafc;
+}
+
+/* ==========================================================================
+   7. ADAPTACIÓN RESPONSIVA
+   ========================================================================== */
+@media (max-width: 640px) {
+  body {
+    padding: 1rem 0.5rem;
+  }
+
+  form {
+    padding: 1.25rem;
+  }
+
+  table {
+    display: block;
+    overflow-x: auto;
+  }
+}
