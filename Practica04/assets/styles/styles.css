@@ -1,0 +1,1167 @@
+
+/* ==========================================================================
+   1. VARIABLES GLOBALES Y RESET
+   ========================================================================== */
+
+:root {
+  --primary: #1e3a8a;
+  --primary-hover: #1e40af;
+  --secondary: #0284c7;
+  --bg-page: #f8fafc;
+  --bg-card: #ffffff;
+  --text-dark: #0f172a;
+  --text-muted: #475569;
+  --border-color: #cbd5e1;
+  --focus-ring: rgba(30, 58, 138, 0.2);
+  --success: #16a34a;
+  --danger: #dc2626;
+  --radius: 8px;
+  --shadow: 0 4px 6px -1px rgba(0,0,0,.1),
+            0 2px 4px -1px rgba(0,0,0,.06);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont,
+               'Segoe UI', Roboto, sans-serif;
+  background-color: var(--bg-page);
+  color: var(--text-dark);
+  line-height: 1.5;
+  padding: 2rem 1rem;
+}
+
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   2. ENCABEZADO PRINCIPAL
+   ========================================================================== */
+
+.main-header {
+  text-align: center;
+  max-width: 1100px;
+  margin: 0 auto 2rem;
+  background: var(--bg-card);
+  padding: 1.5rem 2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border-top: 5px solid var(--primary);
+}
+
+.main-header h1 {
+  font-size: 2.2rem;
+  color: var(--primary);
+  font-weight: 800;
+  letter-spacing: -.5px;
+}
+
+.main-header h2 {
+  font-size: 1.25rem;
+  color: var(--text-dark);
+  margin: .25rem 0 .5rem;
+}
+
+.main-header p {
+  color: var(--text-muted);
+  font-size: .95rem;
+}
+
+/* ==========================================================================
+   3. ENCABEZADOS DE SECCIÓN
+   ========================================================================== */
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 2rem 0 1rem;
+  padding: 1rem;
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.section-index {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--primary);
+}
+
+.section-text {
+  flex: 1;
+}
+
+.section-text h2 {
+  color: var(--primary);
+  font-size: 1.3rem;
+}
+
+.section-desc,
+.eyebrow {
+  color: var(--text-muted);
+  font-size: .85rem;
+}
+
+.section-meta {
+  font-size: .8rem;
+  color: var(--text-muted);
+}
+
+.section-divider-top {
+  margin-top: 3rem;
+}
+
+/* ==========================================================================
+   4. FORMULARIOS Y CONTENEDORES
+   ========================================================================== */
+
+#formRegistro,
+main > form:not(#formRegistro) {
+  background: var(--bg-card);
+  padding: 2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 2rem;
+}
+
+fieldset {
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  margin-bottom: 1.75rem;
+  background-color: #fafafa;
+  min-width: 0;
+}
+
+legend {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--primary);
+  padding: 0 .5rem;
+  background-color: var(--bg-card);
+  border-radius: 4px;
+}
+
+h4 {
+  color: var(--text-dark);
+  margin: 1.25rem 0 .75rem;
+  font-size: 1rem;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: .25rem;
+}
+
+/* ==========================================================================
+   5. ETIQUETAS E INPUTS
+   ========================================================================== */
+
+.field > label,
+main > form label {
+  display: block;
+  font-size: .875rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin: 0 0 .4rem;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"],
+input[type="date"],
+input[type="time"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="number"],
+input[type="url"],
+select,
+textarea {
+  width: 100%;
+  padding: .65rem .85rem;
+  font-size: .95rem;
+  font-family: inherit;
+  color: var(--text-dark);
+  background-color: #fff;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  outline: none;
+  transition: border-color .2s, box-shadow .2s;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--focus-ring);
+}
+
+textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  width: auto;
+  margin-right: .4rem;
+  vertical-align: middle;
+  accent-color: var(--primary);
+  cursor: pointer;
+}
+
+input[type="file"] {
+  max-width: 100%;
+}
+
+input[type="color"] {
+  height: 40px;
+  width: 80px;
+  padding: 2px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   6. WIZARD PRINCIPAL
+   ========================================================================== */
+
+.wizard-card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+}
+
+.stepper {
+  position: relative;
+  padding: 1.5rem 2rem;
+  background: #f1f5f9;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.stepper-list {
+  display: flex;
+  justify-content: space-between;
+  gap: .5rem;
+  list-style: none;
+  position: relative;
+  z-index: 2;
+}
+
+.stepper-item {
+  flex: 1;
+  min-width: 0;
+  text-align: center;
+}
+
+.step-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .5rem;
+  width: 100%;
+  background: transparent !important;
+  color: var(--text-muted) !important;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.step-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 48px;
+  height: 48px;
+  border: 2px solid var(--border-color);
+  border-radius: 50%;
+  background: #fff;
+  transition: .2s;
+}
+
+.step-icon {
+  font-size: 23px;
+}
+
+.step-num {
+  display: none;
+}
+
+.step-label {
+  font-size: .78rem;
+  font-weight: 600;
+}
+
+.stepper-item.is-active .step-circle,
+.stepper-item.is-completed .step-circle {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}
+
+.stepper-item.is-active .step-label,
+.stepper-item.is-completed .step-label {
+  color: var(--primary);
+}
+
+.stepper-track {
+  position: absolute;
+  top: 39px;
+  left: 12%;
+  width: 76%;
+  height: 4px;
+  background: var(--border-color);
+  z-index: 1;
+}
+
+.stepper-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--primary);
+  transition: width .3s ease;
+}
+
+/* ==========================================================================
+   7. PANELES DEL WIZARD
+   ========================================================================== */
+
+.wizard-panel {
+  padding: 2rem;
+}
+
+.panel-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.panel-head h3 {
+  color: var(--primary);
+  font-size: 1.35rem;
+  margin: .25rem 0;
+}
+
+.panel-sub {
+  font-size: .9rem;
+  color: var(--text-muted);
+}
+
+.panel-icon {
+  font-size: 2.5rem;
+  color: var(--secondary);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.field {
+  min-width: 0;
+}
+
+.field-wide {
+  grid-column: 1 / -1;
+}
+
+.input-wrap {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  min-width: 0;
+}
+
+.input-wrap > .material-symbols-outlined {
+  color: var(--secondary);
+  font-size: 21px;
+  flex-shrink: 0;
+}
+
+.input-wrap input,
+.input-wrap select {
+  min-width: 0;
+}
+
+.has-toggle {
+  position: relative;
+}
+
+.has-toggle input {
+  padding-right: 3rem;
+}
+
+.toggle-pass {
+  position: absolute;
+  right: .5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0;
+  padding: .35rem;
+  background: transparent;
+  color: var(--text-muted);
+}
+
+.toggle-pass:hover {
+  background: #e2e8f0;
+  color: var(--primary);
+}
+
+/* ==========================================================================
+   8. MENSAJES Y VALIDACIONES
+   ========================================================================== */
+
+.req {
+  color: var(--danger);
+  font-weight: 700;
+}
+
+.field-hint {
+  color: var(--text-muted);
+  font-size: .78rem;
+  margin-top: .35rem;
+}
+
+.field-error {
+  color: var(--danger);
+  font-size: .8rem;
+  margin-top: .3rem;
+}
+
+.form-banner {
+  margin: 1rem 2rem 0;
+  padding: .9rem 1rem;
+  border-radius: 6px;
+  font-size: .9rem;
+}
+
+#resultadoEdad {
+  padding: .85rem;
+  border-radius: 6px;
+  background: #eff6ff;
+  color: var(--primary);
+  border: 1px solid #bfdbfe;
+}
+
+/* ==========================================================================
+   9. TELÉFONO
+   ========================================================================== */
+
+.phone-group {
+  display: grid;
+  grid-template-columns: minmax(130px, .8fr) minmax(0, 1.5fr);
+  gap: .5rem;
+  align-items: center;
+}
+
+.phone-group .input-wrap {
+  min-width: 0;
+}
+
+/* ==========================================================================
+   10. REDES SOCIALES Y QR
+   ========================================================================== */
+
+.social-layout {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.social-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-width: 0;
+}
+
+.social-row {
+  display: grid;
+  grid-template-columns: 110px minmax(0, 1fr);
+  align-items: start;
+  gap: .75rem;
+}
+
+.check-label {
+  display: flex;
+  align-items: center;
+  gap: .35rem;
+}
+
+.social-input {
+  min-width: 0;
+}
+
+.qr-card {
+  padding: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  background: #f8fafc;
+}
+
+.qr-card-title {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  color: var(--primary);
+}
+
+.qr-card-hint,
+.qr-file {
+  color: var(--text-muted);
+  font-size: .8rem;
+  margin: .5rem 0;
+}
+
+.qr-preview {
+  min-height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border: 1px dashed var(--border-color);
+  border-radius: 6px;
+  padding: 1rem;
+}
+
+.qr-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .5rem;
+  color: var(--text-muted);
+  font-size: .8rem;
+}
+
+.qr-empty .material-symbols-outlined {
+  font-size: 2rem;
+}
+
+#qrImage {
+  max-width: 100%;
+  max-height: 180px;
+  object-fit: contain;
+}
+
+/* ==========================================================================
+   11. CONTRASEÑAS
+   ========================================================================== */
+
+.pass-rules {
+  list-style: none;
+  margin-top: .75rem;
+  font-size: .78rem;
+  color: var(--text-muted);
+}
+
+.pass-rules li {
+  margin: .25rem 0;
+}
+
+.pass-rules li.valid {
+  color: var(--success);
+}
+
+/* ==========================================================================
+   12. TÉRMINOS Y CONDICIONES
+   ========================================================================== */
+
+.terms {
+  display: flex;
+  align-items: flex-start;
+  gap: .5rem;
+  font-weight: 400;
+  margin-top: .5rem;
+}
+
+.terms input {
+  margin-top: .3rem;
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   13. BOTONES
+   ========================================================================== */
+
+button {
+  padding: .75rem 1.5rem;
+  font-size: .95rem;
+  font-weight: 600;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: background .2s, color .2s, transform .2s;
+}
+
+button:disabled {
+  opacity: .5;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--primary-hover);
+}
+
+.btn-outline {
+  background: #fff;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+}
+
+.btn-outline:hover:not(:disabled) {
+  background: #eff6ff;
+}
+
+.wizard-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem 2rem;
+  border-top: 1px solid var(--border-color);
+  background: #f8fafc;
+}
+
+.actions-right {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+.actions-right button,
+.wizard-actions button {
+  margin: 0;
+}
+
+.btn-small {
+  padding: .45rem .75rem;
+  font-size: .8rem;
+}
+
+/* ==========================================================================
+   14. TABLAS
+   ========================================================================== */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  background: #fff;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0,0,0,.05);
+}
+
+table, th, td {
+  border: 1px solid var(--border-color);
+}
+
+th {
+  background: #f1f5f9;
+  color: var(--text-dark);
+  font-weight: 700;
+  text-align: left;
+  padding: .75rem;
+  font-size: .85rem;
+  text-transform: uppercase;
+}
+
+td {
+  padding: .75rem;
+  font-size: .9rem;
+  color: var(--text-muted);
+}
+
+tr:nth-child(even) {
+  background: #f8fafc;
+}
+
+/* ==========================================================================
+   15. RESPONSIVE
+   ========================================================================== */
+
+@media (max-width: 768px) {
+
+  body {
+    padding: 1rem .5rem;
+  }
+
+  #formRegistro,
+  main > form:not(#formRegistro) {
+    padding: 1rem;
+  }
+
+  .wizard-panel {
+    padding: 1.25rem;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .field-wide {
+    grid-column: auto;
+  }
+
+  .social-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .stepper {
+    padding: 1rem .5rem;
+  }
+
+  .step-circle {
+    width: 40px;
+    height: 40px;
+  }
+
+  .step-label {
+    font-size: .68rem;
+  }
+
+  .stepper-track {
+    top: 29px;
+  }
+
+  .section-meta {
+    display: none;
+  }
+
+  .wizard-actions {
+    padding: 1rem;
+  }
+
+  .wizard-actions button {
+    padding: .65rem .8rem;
+    font-size: .85rem;
+  }
+
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .main-header {
+    padding: 1.25rem .75rem;
+  }
+
+  .main-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .main-header h2 {
+    font-size: 1rem;
+  }
+
+  .step-label {
+    font-size: .6rem;
+  }
+
+  .step-circle {
+    width: 34px;
+    height: 34px;
+  }
+
+  .step-icon {
+    font-size: 19px;
+  }
+
+  .stepper-track {
+    top: 26px;
+  }
+
+  .phone-group {
+    grid-template-columns: 1fr;
+  }
+
+  .social-row {
+    grid-template-columns: 1fr;
+  }
+
+  .wizard-actions {
+    flex-wrap: wrap;
+  }
+
+  .actions-right {
+    width: 100%;
+    justify-content: flex-end;
+  }
+}
+/* ==========================================================================
+   16. ORGANIZACIÓN GENERAL DE LA PÁGINA
+   ========================================================================== */
+
+body {
+    padding: 0;
+    min-height: 100vh;
+}
+
+.app-shell {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
+}
+
+/* Permite organizar los elementos del menú y contenido */
+.sidebar,
+.app-main {
+    display: contents;
+}
+
+/* Ocultar elementos laterales que ya no se necesitan */
+.sidebar-brand,
+.sidebar-caption,
+.sidebar-help {
+    display: none !important;
+}
+
+/* ==========================================================================
+   17. BARRA SUPERIOR
+   ========================================================================== */
+
+.topbar {
+    order: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: .8rem 3%;
+    background: var(--bg-card);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.topbar-context,
+.topbar-user {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.user-avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: white;
+    font-weight: bold;
+}
+
+/* ==========================================================================
+   18. ENCABEZADO ME CAGEST
+   ========================================================================== */
+
+.main-header {
+    order: 1;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 2.5rem 1rem;
+    border-radius: 0;
+    border-top: none;
+    border-bottom: 4px solid var(--primary);
+    box-shadow: none;
+    text-align: center;
+}
+
+.main-header h1 {
+    font-size: 2.8rem;
+    letter-spacing: 2px;
+}
+
+.main-header h2 {
+    font-size: 1.4rem;
+    margin-top: .5rem;
+}
+
+/* ==========================================================================
+   19. MENÚ DE NAVEGACIÓN HORIZONTAL
+   ========================================================================== */
+
+.sidebar-nav {
+    order: 2;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: .7rem;
+    width: 100%;
+    padding: 1rem 2%;
+    background: var(--bg-card);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    padding: .75rem 1.2rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    color: var(--text-dark);
+    background: var(--bg-card);
+    text-decoration: none;
+    font-size: .9rem;
+    font-weight: 700;
+    transition: .2s ease;
+    cursor: pointer;
+}
+
+.sidebar-link:hover {
+    background: #eff6ff;
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.sidebar-link.is-current {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
+
+.sidebar-link .material-symbols-outlined {
+    font-size: 21px;
+}
+
+/* ==========================================================================
+   20. CONTENIDO PRINCIPAL
+   ========================================================================== */
+
+main {
+    order: 3;
+    width: 100%;
+    max-width: 1200px;
+    padding: 1.5rem 2rem 3rem;
+    margin: 0 auto;
+}
+
+.menu-panel {
+    width: 100%;
+}
+
+.section-heading {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    padding: 1.2rem 1.5rem;
+}
+
+.section-index {
+    min-width: 45px;
+    text-align: center;
+}
+
+/* ==========================================================================
+   21. FORMULARIOS Y TARJETAS
+   ========================================================================== */
+
+.wizard-card {
+    width: 100%;
+    margin-bottom: 1.5rem;
+}
+
+.wizard-panel {
+    padding: 2rem;
+}
+
+.registration-extra {
+    margin-top: 2rem;
+}
+
+.registration-extra h3 {
+    margin-bottom: 1rem;
+    color: var(--primary);
+}
+
+.module-form {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.module-form fieldset {
+    width: 100%;
+    padding: 1.5rem;
+}
+
+.module-form label {
+    display: block;
+    margin: .8rem 0 .4rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.module-form button {
+    margin-top: 1rem;
+}
+
+/* ==========================================================================
+   22. TABLAS DE CITAS Y ALMACÉN
+   ========================================================================== */
+
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+th,
+td {
+    padding: .9rem;
+}
+
+/* ==========================================================================
+   23. PASOS DEL REGISTRO
+   ========================================================================== */
+
+.stepper {
+    padding: 1.5rem 2rem;
+}
+
+.stepper-list {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 1rem;
+}
+
+.stepper-item {
+    flex: 1;
+}
+
+.step-label {
+    font-size: .85rem;
+}
+
+/* ==========================================================================
+   24. BOTONES DE NAVEGACIÓN
+   ========================================================================== */
+
+.wizard-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+}
+
+/* ==========================================================================
+   25. DISEÑO RESPONSIVE
+   ========================================================================== */
+
+@media (max-width: 900px) {
+
+    .sidebar-nav {
+        justify-content: center;
+        gap: .5rem;
+    }
+
+    .sidebar-link {
+        padding: .65rem .8rem;
+        font-size: .8rem;
+    }
+
+    main {
+        padding: 1.2rem;
+    }
+
+    .main-header h1 {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .topbar {
+        padding: .7rem 1rem;
+    }
+
+    .user-name {
+        display: none;
+    }
+
+    .main-header {
+        padding: 1.8rem 1rem;
+    }
+
+    .main-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .main-header h2 {
+        font-size: 1rem;
+    }
+
+    .sidebar-nav {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        padding: 1rem;
+    }
+
+    .sidebar-link {
+        width: 100%;
+        padding: .7rem .4rem;
+        font-size: .75rem;
+    }
+
+    main {
+        padding: 1rem .7rem;
+    }
+
+    .section-heading {
+        padding: 1rem;
+    }
+
+    .wizard-panel {
+        padding: 1rem;
+    }
+
+    .stepper {
+        padding: 1rem .5rem;
+    }
+
+    .step-label {
+        font-size: .65rem;
+    }
+
+    .stepper-list {
+        gap: .3rem;
+    }
+
+    .wizard-actions {
+        padding: 1rem;
+    }
+}
