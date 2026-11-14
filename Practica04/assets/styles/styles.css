@@ -836,7 +836,7 @@ body {
     display: flex;
     flex-direction: column;
     width: 100%;
-}
+}                                              
 
 /* Ocultar elementos laterales que ya no se necesitan */
 .sidebar-brand,
