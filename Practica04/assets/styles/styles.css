@@ -833,7 +833,9 @@ body {
 /* Permite organizar los elementos del menú y contenido */
 .sidebar,
 .app-main {
-    display: contents;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 }
 
 /* Ocultar elementos laterales que ya no se necesitan */
