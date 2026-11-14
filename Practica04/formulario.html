@@ -3,7 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MecaGest - Registro De Nuevos Usuarios-250953</title>
+    <title>MecaGest - Panel de administración</title>
+    <style>
+        .menu-panel[hidden] { display: none !important; }
+        .menu-panel.is-visible { display: block; animation: panelEntrada .22s ease-out; }
+        @keyframes panelEntrada { from { opacity: .65; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+        .registration-extra { margin-top: 1.5rem; }
+        .registration-extra h3 { color: var(--text-dark); margin: 0 0 1rem; }
+        .module-form { display: grid; gap: 1.25rem; }
+        .module-form fieldset { min-width: 0; }
+    </style>
     <!-- ICONO DE LA PESTAÑA DEL NAVEGADOR USANDO TU LOGO -->
 
     <!-- INTEGRACIÓN DE GOOGLE MATERIAL SYMBOLS (ICONOS EXTERNOS) -->
@@ -16,6 +25,36 @@
     <script src="assets/js/main.js" defer></script>
 </head>
 <body>
+    <div class="app-shell">
+        <aside class="sidebar" aria-label="Navegación principal">
+            <div class="sidebar-brand">
+                <div class="brand-mark">SGTM</div>
+                <div class="brand-copy"><strong>MecaGest</strong><small>Sistema de gestión</small></div>
+            </div>
+            <p class="sidebar-caption">MENÚ PRINCIPAL</p>
+            <nav class="sidebar-nav">
+                <span class="sidebar-link"><span class="material-symbols-outlined">dashboard</span>Dashboard</span>
+                <span class="sidebar-link"><span class="material-symbols-outlined">groups</span>Clientes</span>
+                <span class="sidebar-link"><span class="material-symbols-outlined">directions_car</span>Vehículos</span>
+                <span class="sidebar-link"><span class="material-symbols-outlined">assignment</span>Órdenes de Trabajo</span>
+                <a class="sidebar-link is-current" href="#panel-registros" data-menu="panel-registros" aria-current="page"><span class="material-symbols-outlined">person_add</span>Registros de usuarios</a>
+                <a class="sidebar-link" href="#panel-citas" data-menu="panel-citas"><span class="material-symbols-outlined">event_available</span>Próximas citas</a>
+                <a class="sidebar-link" href="#panel-almacen" data-menu="panel-almacen"><span class="material-symbols-outlined">build</span>Salidas de almacén</a>
+                <span class="sidebar-link"><span class="material-symbols-outlined">payments</span>Facturación y Pagos</span>
+                <span class="sidebar-link"><span class="material-symbols-outlined">analytics</span>Reportes</span>
+                <a class="sidebar-link" href="#panel-configuraciones" data-menu="panel-configuraciones"><span class="material-symbols-outlined">settings</span>Configuraciones</a>
+            </nav>
+            <div class="sidebar-help">
+                <span class="material-symbols-outlined">help</span>
+                <div><strong>¿Necesitas ayuda?</strong><small>Soporte técnico</small></div>
+            </div>
+        </aside>
+        <div class="app-main">
+            <div class="topbar">
+                <div class="topbar-context"><span class="material-symbols-outlined">menu</span><span>Panel de administración</span></div>
+                <div class="topbar-user"><span class="material-symbols-outlined">notifications</span><span class="material-symbols-outlined">help_outline</span><span class="user-avatar">A</span><span class="user-name">Administrador</span></div>
+            </div>
+
 
     <!-- =====================================================================
          ENCABEZADO PRINCIPAL CON TU LOGO CENTRADO ARRIBA DE MECAGEST
@@ -28,6 +67,7 @@
     </header>
 
     <main>
+        <section class="menu-panel is-visible" id="panel-registros" aria-labelledby="titulo-registros">
         <!-- =====================================================================
              ENCABEZADO DE SECCIÓN NUMERADO: 01 - SOLICITUD DE REGISTRO
              ===================================================================== -->
@@ -35,7 +75,7 @@
             <span class="section-index">01</span>
             <div class="section-text">
                 <p class="eyebrow">Módulo principal</p>
-                <h2>Solicitud de registro</h2>
+                <h2 id="titulo-registros">Solicitud de registro</h2>
                 <p class="section-desc">Completa las cuatro etapas del registro. Los campos con (*) son obligatorios para avanzar.</p>
             </div>
             <span class="section-meta">01 — 04 secciones</span>
@@ -188,7 +228,25 @@
                             <div id="resultadoEdad">Selecciona una fecha para calcular tu edad.</div>
                         </div>
                     </div>
-                </section>
+        
+        <div class="registration-extra">
+            <h3>Información fiscal del usuario</h3>
+            <form class="module-form">
+            <fieldset>
+                <legend>Datos fiscales:</legend>
+                <label for="rfc">Registro Federal de Causantes (RFC):</label>
+                <div class="input-wrap">
+                    <span class="material-symbols-outlined" aria-hidden="true">receipt_long</span>
+                    <input type="text" id="rfc" maxlength="13" placeholder="RAHMXXXXXX">
+                </div>
+                <br>
+                <label for="fiscalSituacion">Constancia de Situación Fiscal:</label>
+                <input type="file" id="fiscalSituacion" accept=".pdf">
+                <input type="hidden" id="userIdFiscal" value="250953">
+            </fieldset>
+            </form>
+        </div>
+        </section>
 
                 <!-- ***************************************************************
                      PASO 02: DATOS DE CONTACTO
@@ -528,30 +586,29 @@
             </form>
         </div>
 
-        <!-- =====================================================================
-             ENCABEZADO DE SECCIÓN NUMERADO: 02 - MÓDULOS DE PRÁCTICA
-             (Se conservan TODOS tus módulos originales intactos)
-             ===================================================================== -->
-        <div class="section-heading section-divider-top">
-            <span class="section-index">02</span>
-            <div class="section-text">
-                <p class="eyebrow">Laboratorio de controles HTML5</p>
-                <h2>Módulos de práctica</h2>
-                <p class="section-desc">Estos controles son para futuro uso; no son parte del Formulario De Registro Usuario.</p>
-            </div>
-            <span class="section-meta">Demostraciones</span>
-        </div>
 
-        <form> <!-- Elementos input que usaremos más adelante -->
+        </section>
+
+        <!-- MENÚ: PRÓXIMAS CITAS -->
+        <section class="menu-panel" id="panel-citas" aria-labelledby="titulo-citas" hidden>
+            <div class="section-heading">
+                <span class="section-index">02</span>
+                <div class="section-text">
+                    <p class="eyebrow">Módulo de agenda</p>
+                    <h2 id="titulo-citas">Próximas citas</h2>
+                    <p class="section-desc">Consulta las citas por mes y registra nuevas solicitudes de cita.</p>
+                </div>
+            </div>
+            <form class="module-form">
             <fieldset>
                 <legend>Visualización De Citas Por Mes:</legend>
                 <label for="appoimentByMonth">Por favor, elige el filtro:</label>
                 <input type="radio" value="Month" name="appoimentFilter" id="appoimentByMonth" checked>Mes
                 <input type="radio" value="Week" name="appoimentFilter" id="appoimentByWeek">Semana
                 <br>
-                <input type="month">
+                <input type="month" id="filtroMes" value="2026-10">
                 <br>
-                <input type="week" disabled>
+                <input type="week" id="filtroSemana" disabled>
                 <button type="button" id="verCitas">
                     <span class="material-symbols-outlined" aria-hidden="true">event_available</span> Ver Citas
                 </button>
@@ -607,48 +664,6 @@
                     </tbody>
                 </table>
             </fieldset>
-
-            <fieldset> 
-                <legend>Configuraciones De La Interfaz:</legend>
-                <label for="fontColor">Color de la Fuente</label>
-                <input type="color" id="fontColor">
-                <br>
-                
-                <label for="backgroundColor">Color de Fondo</label>
-                <input type="color" id="backgroundColor" value="#0f172a">
-                <br>
-                
-                <label for="soundsVolume">Volumen de reproducción de sonidos</label>
-                <input type="range" id="soundsVolume" min="0" max="100" value="80">
-                <button type="button" id="muteSounds">
-                    <span class="material-symbols-outlined" aria-hidden="true">volume_off</span> Silenciar Sonidos
-                </button>
-            </fieldset>
-
-            <fieldset> 
-                <legend>Configuración de Mi cuenta/Perfil:</legend>
-                <label for="userPhoto">Foto de Perfil:</label>
-                <input type="file" id="userPhoto" accept="image/*">
-                <br>
-                <!-- Usamos tu archivo next.gif que aparece en tu carpeta assets/imagenes -->
-                <input type="image" id="buttonNext" src="assets/imagenes/next.gif" alt="Siguiente" width="50" height="50">
-                <br>
-                <input type="hidden" id="userId" value="250953">
-            </fieldset>
-
-            <fieldset>
-                <legend>Datos fiscales:</legend>
-                <label for="rfc">Registro Federal de Causantes (RFC):</label>
-                <div class="input-wrap">
-                    <span class="material-symbols-outlined" aria-hidden="true">receipt_long</span>
-                    <input type="text" id="rfc" maxlength="13" placeholder="RAHMXXXXXX">
-                </div>
-                <br>
-                <label for="fiscalSituacion">Constancia de Situación Fiscal:</label>
-                <input type="file" id="fiscalSituacion" accept=".pdf">
-                <input type="hidden" id="userIdFiscal" value="250953">
-            </fieldset>
-
             <fieldset>
                 <legend>Solicitud de cita</legend>
                 <label for="dateAppoiment">Fecha de la cita:</label>
@@ -674,7 +689,20 @@
                 <textarea id="descritionText"></textarea>
                 <br>
             </fieldset>
+            </form>
+        </section>
 
+        <!-- MENÚ: SALIDAS DE ALMACÉN -->
+        <section class="menu-panel" id="panel-almacen" aria-labelledby="titulo-almacen" hidden>
+            <div class="section-heading">
+                <span class="section-index">03</span>
+                <div class="section-text">
+                    <p class="eyebrow">Módulo de inventario</p>
+                    <h2 id="titulo-almacen">Salidas de almacén</h2>
+                    <p class="section-desc">Solicita herramientas y refacciones para los servicios mecánicos.</p>
+                </div>
+            </div>
+            <form class="module-form">
             <fieldset>
                 <legend>Solicitud de Herramientas para Servicio Mecánico:</legend>
                 <label>Elige la categoría:</label>
@@ -768,7 +796,130 @@
                     </tbody>
                 </table>
             </fieldset>
-        </form>    
+            </form>
+        </section>
+
+        <!-- MENÚ: CONFIGURACIONES -->
+        <section class="menu-panel" id="panel-configuraciones" aria-labelledby="titulo-configuraciones" hidden>
+            <div class="section-heading">
+                <span class="section-index">04</span>
+                <div class="section-text">
+                    <p class="eyebrow">Preferencias del sistema</p>
+                    <h2 id="titulo-configuraciones">Configuraciones</h2>
+                    <p class="section-desc">Personaliza la interfaz y administra la información de tu cuenta.</p>
+                </div>
+            </div>
+            <form class="module-form">
+            <fieldset> 
+                <legend>Configuraciones De La Interfaz:</legend>
+                <label for="fontColor">Color de la Fuente</label>
+                <input type="color" id="fontColor">
+                <br>
+                
+                <label for="backgroundColor">Color de Fondo</label>
+                <input type="color" id="backgroundColor" value="#0f172a">
+                <br>
+                
+                <label for="soundsVolume">Volumen de reproducción de sonidos</label>
+                <input type="range" id="soundsVolume" min="0" max="100" value="80">
+                <button type="button" id="muteSounds">
+                    <span class="material-symbols-outlined" aria-hidden="true">volume_off</span> Silenciar Sonidos
+                </button>
+            </fieldset>
+            <fieldset> 
+                <legend>Configuración de Mi cuenta/Perfil:</legend>
+                <label for="userPhoto">Foto de Perfil:</label>
+                <input type="file" id="userPhoto" accept="image/*">
+                <br>
+                <!-- Usamos tu archivo next.gif que aparece en tu carpeta assets/imagenes -->
+                <input type="image" id="buttonNext" src="assets/imagenes/next.gif" alt="Siguiente" width="50" height="50">
+                <br>
+                <input type="hidden" id="userId" value="250953">
+            </fieldset>
+            </form>
+        </section>
+
     </main>
+        </div>
+    </div>
+
+    <script>
+    // Navegación entre los cuatro módulos del menú lateral.
+    document.addEventListener('DOMContentLoaded', function () {
+        const menuLinks = document.querySelectorAll('.sidebar-nav [data-menu]');
+        const panels = document.querySelectorAll('.menu-panel');
+
+        function showPanel(panelId) {
+            panels.forEach(function (panel) {
+                const active = panel.id === panelId;
+                panel.hidden = !active;
+                panel.classList.toggle('is-visible', active);
+            });
+
+            menuLinks.forEach(function (link) {
+                const active = link.dataset.menu === panelId;
+                link.classList.toggle('is-current', active);
+                if (active) {
+                    link.setAttribute('aria-current', 'page');
+                } else {
+                    link.removeAttribute('aria-current');
+                }
+            });
+        }
+
+        menuLinks.forEach(function (link) {
+            link.addEventListener('click', function (event) {
+                event.preventDefault();
+                const panelId = link.dataset.menu;
+                showPanel(panelId);
+                history.replaceState(null, '', '#' + panelId);
+            });
+        });
+
+        const requestedPanel = window.location.hash.slice(1);
+        const validPanel = Array.from(panels).some(function (panel) {
+            return panel.id === requestedPanel;
+        });
+        showPanel(validPanel ? requestedPanel : 'panel-registros');
+
+        // Cambiar entre filtro mensual y semanal en Próximas citas.
+        const filtroMes = document.getElementById('filtroMes');
+        const filtroSemana = document.getElementById('filtroSemana');
+        document.querySelectorAll('input[name="appoimentFilter"]').forEach(function (radio) {
+            radio.addEventListener('change', function () {
+                const semanal = this.value === 'Week';
+                filtroMes.disabled = semanal;
+                filtroSemana.disabled = !semanal;
+            });
+        });
+
+        // Aplicar los colores elegidos en Configuraciones.
+        const fontColor = document.getElementById('fontColor');
+        const backgroundColor = document.getElementById('backgroundColor');
+        if (fontColor) {
+            fontColor.addEventListener('input', function () {
+                document.querySelector('.app-main').style.color = this.value;
+            });
+        }
+        if (backgroundColor) {
+            backgroundColor.addEventListener('input', function () {
+                document.querySelector('.app-main').style.backgroundColor = this.value;
+            });
+        }
+
+        // Control visual del volumen/silencio.
+        const muteSounds = document.getElementById('muteSounds');
+        const soundsVolume = document.getElementById('soundsVolume');
+        if (muteSounds && soundsVolume) {
+            muteSounds.addEventListener('click', function () {
+                const muted = soundsVolume.disabled;
+                soundsVolume.disabled = !muted;
+                this.innerHTML = muted
+                    ? '<span class="material-symbols-outlined" aria-hidden="true">volume_off</span> Silenciar Sonidos'
+                    : '<span class="material-symbols-outlined" aria-hidden="true">volume_up</span> Activar Sonidos';
+            });
+        }
+    });
+    </script>
 </body>
 </html>

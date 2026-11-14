@@ -130,6 +130,7 @@ function validarPaso(numero) {
 
     if (!panel) return true;
 
+    // Validar campos obligatorios.
     const campos = panel.querySelectorAll("input, select, textarea");
 
     for (const campo of campos) {
@@ -141,6 +142,56 @@ function validarPaso(numero) {
             return false;
         }
     }
+
+    // Validaciones del paso 3: datos de acceso.
+    if (numero === 3) {
+        const password = document.getElementById("password");
+        const confirmar = document.getElementById("confirmarPassword");
+
+        if (!password.value || !confirmar.value) {
+            alert("Debes ingresar y confirmar tu contraseña.");
+            return false;
+        }
+
+        if (password.value.length < 8) {
+            alert("La contraseña debe tener al menos 8 caracteres.");
+            password.focus();
+            return false;
+        }
+
+        if (!/[A-Z]/.test(password.value)) {
+            alert("La contraseña debe contener una letra mayúscula.");
+            password.focus();
+            return false;
+        }
+
+        if (!/[a-z]/.test(password.value)) {
+            alert("La contraseña debe contener una letra minúscula.");
+            password.focus();
+            return false;
+        }
+
+        if (!/[0-9]/.test(password.value)) {
+            alert("La contraseña debe contener un número.");
+            password.focus();
+            return false;
+        }
+
+        if (!/[^A-Za-z0-9]/.test(password.value)) {
+            alert("La contraseña debe contener un signo especial.");
+            password.focus();
+            return false;
+        }
+
+        if (password.value !== confirmar.value) {
+            alert("Las contraseñas no coinciden.");
+            confirmar.focus();
+            return false;
+        }
+    }
+
+    return true;
+
 
     // Validar las reglas de la contraseña.
     if (numero === 3) {
